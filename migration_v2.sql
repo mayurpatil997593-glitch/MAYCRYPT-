@@ -1,0 +1,3 @@
+-- MAYCRYPT v2 additions (safe to run on an existing database)
+CREATE TABLE IF NOT EXISTS lesson_progress(id INT AUTO_INCREMENT PRIMARY KEY,user_id INT NOT NULL,course_id INT NOT NULL,lesson_no INT NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,UNIQUE KEY uq_lesson(user_id,course_id,lesson_no),FOREIGN KEY(user_id) REFERENCES users(id),FOREIGN KEY(course_id) REFERENCES courses(id));
+CREATE TABLE IF NOT EXISTS lab_progress(id INT AUTO_INCREMENT PRIMARY KEY,user_id INT NOT NULL,lab VARCHAR(20) NOT NULL,task VARCHAR(30) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,UNIQUE KEY uq_lab(user_id,lab,task),FOREIGN KEY(user_id) REFERENCES users(id));

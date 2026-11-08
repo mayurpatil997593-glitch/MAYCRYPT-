@@ -1,0 +1,27 @@
+DEPLOY MAYCRYPT FREE: Render (website) + Aiven (MySQL)
+=======================================================
+A. DATABASE (Aiven)
+1. Sign up at aiven.io, create a service: MySQL, plan "Free". Wait until it is Running.
+2. On the service Overview page copy: Host, Port, User, Password, Database name, and download the "CA certificate".
+3. On your PC, make a .env (copy .env.example) with those values:
+     DB_HOST=...  DB_PORT=...  DB_USER=...  DB_PASSWORD=...  DB_NAME=...(usually defaultdb)
+     DB_SSL_CA_PEM=<open the CA file, put the whole text on ONE line, replace each line break with \n>
+4. Run once:   python init_db.py      (creates all tables and the 6 courses with quiz questions)
+   Check:      python app.py   then open http://127.0.0.1:5000 and register a test user.
+
+B. WEBSITE (Render)
+1. Push this folder to a GitHub repository (.env is ignored by .gitignore, so your password is not uploaded).
+2. On render.com: New > Web Service > connect the repo.
+   Build command:  pip install -r requirements.txt
+   Start command:  gunicorn app:app
+   Instance type:  Free
+   (Or use New > Blueprint, which reads render.yaml.)
+3. Environment variables (Render dashboard): FLASK_SECRET_KEY (long random text), FLASK_DEBUG=0,
+   SESSION_COOKIE_SECURE=1, DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME, DB_SSL_CA_PEM (same values as step A3).
+4. Deploy. Open https://<your-service>.onrender.com
+5. Test: open /api/health. It should show {"database":"connected","status":"ok"}.
+
+NOTES
+- Render free sites sleep after inactivity, so the first open can take about a minute.
+- Make yourself admin:  UPDATE users SET is_admin=1 WHERE email='you@example.com';  (run in the Aiven SQL console or any MySQL client)
+- Keep passwords out of GitHub. Never commit .env.
