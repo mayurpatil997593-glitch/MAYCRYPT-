@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#07100b">
+    <meta name="description" content="MAYCRYPT Cyber Security Learning Platform">
+    <title>MAYCRYPT | Cyber Security Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+    <a class="logo" onclick="page('home')" aria-label="MAYCRYPT home"><span class="logo-mark">M</span><span>MAY<span class="accent">CRYPT</span></span></a>
+    <nav class="top-nav">
+        <a data-page="home" onclick="page('home')">Home</a>
+        <a data-page="about" onclick="page('about')">About</a>
+        <a data-page="courses" onclick="page('courses')">Courses</a>
+        <a data-page="contact" onclick="page('contact')">Contact</a>
+        <span id="navAuth" style="display:contents"></span>
+    </nav>
+    <button class="hamb" aria-label="Open menu" onclick="document.querySelector('aside').classList.toggle('show')">☰</button>
+</header>
+
+<div class="app-layout">
+    <aside class="sidebar">
+        <div class="sidebar-label">WORKSPACE</div>
+        <a data-page="dashboard" onclick="page('dashboard')"><span>▦</span> Dashboard</a>
+        <a data-page="courses" onclick="page('courses')"><span>◈</span> Courses</a>
+        <a data-page="learning" onclick="page('learning')"><span>▤</span> Learning Hub</a>
+        <a data-page="practice" onclick="page('practice')"><span>✎</span> Practice Zone</a>
+        <a data-page="games" onclick="page('games')"><span>♟</span> Cyber Games</a>
+        <a data-page="labs" onclick="page('labs')"><span>⌘</span> Virtual Labs</a>
+        <div class="sidebar-label">ACHIEVEMENTS</div>
+        <a data-page="leaderboard" onclick="page('leaderboard')"><span>♛</span> Leaderboard</a>
+        <a data-page="certificates" onclick="page('certificates')"><span>▧</span> Certificates</a>
+        <div class="sidebar-label">ACCOUNT</div>
+        <a data-page="profile" onclick="page('profile')"><span>◉</span> My Profile</a>
+        <a data-page="admin" onclick="page('admin')"><span>⚙</span> Admin Panel</a>
+        <div class="sidebar-status"><i></i><span>ALL SYSTEMS OPERATIONAL</span></div>
+        <div class="sidebar-brand">MAYCRYPT <small>LEARN • PRACTICE • SECURE</small></div>
+    </aside>
+
+    <main class="main-content">
+        <section id="home" class="active">
+            <div class="hero-panel">
+                <div class="hero-copy">
+                    <div class="eyebrow"><i></i> CYBER SECURITY LEARNING PLATFORM</div>
+                    <h1>Think like a <span>defender.</span><br>Train like a <span>hacker.</span></h1>
+                    <p>Build real cyber security foundations through guided courses, skill checks, safe labs and interactive challenges.</p>
+                    <div class="hero-actions"><button class="btn btn-primary" onclick="page('courses')">Explore courses <span>↗</span></button><button class="btn btn-outline" onclick="page('labs')">Open virtual labs</button></div>
+                    <div class="hero-foot"><span>01 / LEARN</span><span>02 / PRACTICE</span><span>03 / LEVEL UP</span></div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+                    <div class="shield"><div class="shield-inner">⌘</div></div>
+                    <div class="float-card card-top"><i></i> NETWORK SECURE <b>99.8%</b></div>
+                    <div class="float-card card-bottom"><i></i> THREAT MONITOR <b>ACTIVE</b></div>
+                    <div class="code-rain">01001<br>10110<br>00101<br>11010<br>01011</div>
+                </div>
+                <div class="hero-grid"></div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card"><span>LEARNING TRACKS</span><b>06<span>+</span></b><small>Start with the basics</small></div>
+                <div class="stat-card"><span>QUIZ QUESTIONS</span><b>30<span>+</span></b><small>Test your knowledge</small></div>
+                <div class="stat-card"><span>CYBER GAMES</span><b>08</b><small>Learn by playing</small></div>
+                <div class="stat-card"><span>LEARNING ACCESS</span><b>24<span>/7</span></b><small>Learn at your pace</small></div>
+            </div>
+            <div class="section-heading"><div><div class="eyebrow">YOUR LEARNING PATH</div><h2>Explore the <span>platform</span></h2></div><span class="section-index">01 — 04</span></div>
+            <div class="feature-grid">
+                <article class="feature-card" onclick="page('learning')"><div class="feature-icon">▤</div><span class="feature-number">01</span><h3>Learning Hub</h3><p>Build a strong foundation with topic-wise learning outlines.</p><a>Explore learning <b>↗</b></a></article>
+                <article class="feature-card" onclick="page('practice')"><div class="feature-icon">⌁</div><span class="feature-number">02</span><h3>Practice Zone</h3><p>Check your understanding with focused quizzes and tests.</p><a>Start practice <b>↗</b></a></article>
+                <article class="feature-card" onclick="page('games')"><div class="feature-icon">♟</div><span class="feature-number">03</span><h3>Cyber Games</h3><p>Improve security awareness through interactive challenges.</p><a>Play games <b>↗</b></a></article>
+                <article class="feature-card" onclick="page('labs')"><div class="feature-icon">⌘</div><span class="feature-number">04</span><h3>Virtual Labs</h3><p>Practise safe Linux and networking commands step by step.</p><a>Open labs <b>↗</b></a></article>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="eyebrow">WHO WE ARE</div><h1>About <span class="accent">MAYCRYPT</span></h1>
+            <div class="content-panel"><h2>Our mission</h2><p>Make cyber security education accessible through clear lessons, practical quizzes and safe simulations.</p><h2>Our vision</h2><p>Build confident and responsible technology learners who understand how to protect digital systems.</p><div class="founder-line"><span>FOUNDER & CEO</span><b>Mayur Patil</b></div></div>
+        </section>
+
+        <section id="courses"><div class="eyebrow">BUILD YOUR FOUNDATION</div><h1>Explore <span class="accent">courses</span></h1><div id="courseGrid" class="data-grid"><p>Loading courses...</p></div></section>
+
+        <section id="practice"><div class="eyebrow">CHECK YOUR KNOWLEDGE</div><h1>Practice <span class="accent">zone</span></h1><div id="practiceGrid" class="data-grid"><p>Loading practice courses...</p></div></section>
+
+        <section id="learning"><div class="eyebrow">LEARN AT YOUR PACE</div><h1>Learning <span class="accent">hub</span></h1><p class="hint-text">Each course has short lessons. Finish them, then take the quiz to earn a certificate.</p><div id="learnGrid" class="data-grid learning-grid"></div></section>
+        <section id="lesson"><div class="quiz-panel" id="lessonBox"></div></section>
+        <section id="result"><div class="quiz-panel result-panel"><div class="eyebrow">QUIZ RESULT</div><h1 id="score"></h1><h2 id="resultText"></h2><p id="certCode" class="form-message"></p><div id="resBtns" class="lab-tabs"></div><div id="review"></div></div></section>
+        <section id="cert"><div id="certBox"></div><div class="lab-tabs no-print"><button class="btn btn-primary" onclick="printCert()">Print / save as PDF</button><button class="btn btn-outline" onclick="page('certificates')">Back</button></div></section>
+        <section id="verify"><div class="eyebrow">PUBLIC CHECK</div><h1>Verify a <span class="accent">certificate</span></h1><div class="quiz-panel"><input id="vCode" type="text" placeholder="Enter certificate ID, e.g. MAY-ABC123XYZ9" autocomplete="off"><div class="lab-tabs"><button class="btn btn-primary" onclick="verifyCert()">Verify</button></div></div><div id="vResult"></div></section>
+        <section id="games"><div class="eyebrow">PLAY • LEARN • EARN POINTS</div><h1>Cyber <span class="accent">games</span></h1><p class="hint-text">Your points: <b id="pts">0</b></p><div id="gameGrid" class="data-grid"></div></section>
+        <section id="game2"><div class="quiz-panel" id="g2"></div></section>
+        <section id="labs"><div class="eyebrow">SAFE HANDS-ON PRACTICE</div><h1>Virtual <span class="accent">labs</span></h1><div class="lab-status"><i></i><span>SIMULATED LAB • NOTHING RUNS ON YOUR REAL DEVICE</span></div>
+            <div class="lab-tabs"><button id="tabLinux" class="btn" onclick="setLab('linux')">Linux lab</button><button id="tabNet" class="btn" onclick="setLab('net')">Network lab</button><button class="btn btn-outline" onclick="resetTerm()">Reset lab</button></div>
+            <div class="lab-wrap"><div><div class="term" id="term"></div><div class="term-in"><span id="tprompt"></span><input id="tin" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command" onkeydown="if(event.key==='Enter')runCmd(this.value)"></div></div>
+            <div class="content-card"><h3>Lab tasks</h3><div id="tasks"></div><h3 style="margin-top:18px">Quick commands</h3><div id="quick"></div></div></div>
+            <p class="hint-text">This is a safe simulator. Run real commands only on your own computer or an authorized lab.</p></section>
+        <section id="quiz"><div class="quiz-panel"><div class="eyebrow" id="qCourse">COURSE QUIZ</div><p class="question-count" id="qCount"></p><h2 id="qText"></h2><div id="qOptions" class="options-list"></div><button id="nextQuestionBtn" class="btn btn-primary" onclick="nextQ()">Next question</button><p id="qMsg" class="form-message"></p></div></section>
+        <section id="game"><div class="quiz-panel"><div class="eyebrow">CHALLENGE MODE</div><h2 id="gTitle"></h2><p id="gQuestion"></p><div id="gOptions" class="options-list"></div><button id="gameSubmitBtn" class="btn btn-primary" onclick="nextG()">Submit answer</button><p id="gMsg" class="form-message"></p></div></section>
+
+        <section id="dashboard"><div class="eyebrow">YOUR LEARNING OVERVIEW</div><h1>Student <span class="accent">dashboard</span></h1><h2 id="welcome"></h2><div class="stats-grid dashboard-stats"><div class="stat-card"><span>GAME POINTS</span><b id="points">0</b></div><div class="stat-card"><span>GAMES PLAYED</span><b id="plays">0</b></div><div class="stat-card"><span>CERTIFICATES</span><b id="certcount">0</b></div><div class="stat-card"><span>LESSONS DONE</span><b id="lessonsDone">0</b></div><div class="stat-card"><span>LAB TASKS</span><b id="labsDone">0</b></div></div><div class="content-panel"><h2>Recent results</h2><div id="recent"></div></div></section>
+        <section id="leaderboard"><div class="eyebrow">COMMUNITY RANKING</div><h1>Top <span class="accent">defenders</span></h1><div class="content-panel" id="leaders"></div></section>
+        <section id="certificates"><div class="eyebrow">YOUR ACHIEVEMENTS</div><h1>My <span class="accent">certificates</span></h1><div class="content-panel" id="certList"></div></section>
+        <section id="profile"><div class="eyebrow">ACCOUNT SETTINGS</div><h1>My <span class="accent">profile</span></h1><div class="content-panel" id="profileInfo"></div><button class="btn btn-outline" onclick="logout()">Logout</button></section>
+        <section id="admin"><div class="eyebrow">MANAGEMENT CONSOLE</div><h1>Admin <span class="accent">panel</span></h1><div class="content-panel" id="adminInfo">Admin login required.</div><p class="hint-text">To promote your own account, run in MySQL: UPDATE users SET is_admin=1 WHERE email='your@email.com';</p></section>
+        <section id="contact"><div class="eyebrow">GET IN TOUCH</div><h1>Contact <span class="accent">us</span></h1><div class="auth-panel"><input id="cName" placeholder="Your name"><input id="cEmail" type="email" placeholder="Email address"><textarea id="cMessage" placeholder="Your message"></textarea><button class="btn btn-primary" onclick="contact()">Send message ↗</button><p id="cMsg" class="form-message"></p></div></section>
+        <section id="login"><div class="auth-panel"><div class="eyebrow">WELCOME BACK</div><h1>Student <span class="accent">login</span></h1><input id="lEmail" type="email" placeholder="Email address" autocomplete="username"><input id="lPass" type="password" placeholder="Password" autocomplete="current-password"><button class="btn btn-primary full-width" onclick="login()">Login to MAYCRYPT ↗</button><p id="lMsg" class="form-message"></p><p class="auth-switch">New to MAYCRYPT? <a onclick="page('register')">Create an account</a></p></div></section>
+        <section id="register"><div class="auth-panel"><div class="eyebrow">START YOUR JOURNEY</div><h1>Create <span class="accent">account</span></h1><input id="rName" placeholder="Full name" autocomplete="name"><input id="rEmail" type="email" placeholder="Email address" autocomplete="email"><input id="rPass" type="password" placeholder="Password (minimum 8 characters)" autocomplete="new-password"><button class="btn btn-primary full-width" onclick="register()">Create account ↗</button><p id="rMsg" class="form-message"></p><p class="auth-switch">Already registered? <a onclick="page('login')">Login</a></p></div></section>
+    </main>
+</div>
+<footer><b>MAYCRYPT</b><p><a href="#" onclick="page('verify');return false">Verify a certificate</a></p><p>Learn • Practice • Test • Secure</p><p>Founder & CEO: Mayur Patil</p><small>© 2026 MAYCRYPT CYBER ACADEMY</small></footer>
+<script src="/static/app.js" defer></script>
+</body>
+</html>
