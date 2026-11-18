@@ -1,0 +1,61 @@
+MAYCRYPT DEPLOYMENT: RENDER WEB SERVICE + POSTGRESQL
+====================================================
+
+IMPORTANT
+- This version uses PostgreSQL (not MySQL).
+- Keep the database and web service in the same Render region when possible.
+- Never upload .env or publish DATABASE_URL / database passwords to GitHub.
+
+1) CREATE / SELECT A POSTGRESQL DATABASE
+- In Render Dashboard, create or open your PostgreSQL database.
+- Copy its Internal Database URL (not the External URL) when the web service
+  is in the same Render account/region and can access the private network.
+- Keep this URL private.
+
+2) UPLOAD PROJECT TO GITHUB
+- Extract this ZIP.
+- Create a GitHub repository and upload the CONTENTS of the
+  MAYCRYPT_Complete_Platform_v2 folder (app.py, requirements.txt,
+  render.yaml, schema.sql, templates/, static/, etc.).
+- Confirm .env is not uploaded. .gitignore excludes it.
+
+3) CREATE THE RENDER WEB SERVICE
+Option A - Blueprint:
+- Render Dashboard > New > Blueprint.
+- Select the GitHub repository containing render.yaml.
+- Review and apply.
+Option B - Web Service:
+- New > Web Service > select the repository.
+- Runtime: Python
+- Build command: pip install -r requirements.txt
+- Start command: python init_db.py && gunicorn app:app --bind 0.0.0.0:$PORT
+- Choose the Free instance if available on your account.
+
+4) SET ENVIRONMENT VARIABLES
+In Render > MAYCRYPT service > Environment:
+- DATABASE_URL = your PostgreSQL Internal Database URL
+- FLASK_SECRET_KEY = a long random secret
+- FLASK_DEBUG = 0
+- SESSION_COOKIE_SECURE = 1
+- PASS_PERCENT = 70
+Save changes and redeploy.
+Do not add MySQL DB_HOST / DB_USER / DB_PASSWORD variables; this build does not use them.
+
+5) VERIFY DEPLOYMENT
+- Open https://YOUR-SERVICE.onrender.com/api/health
+- Expected JSON: {"database":"connected","status":"ok"}
+- Then open https://YOUR-SERVICE.onrender.com and test registration/login,
+  courses, quizzes, games, learning progress, labs and certificates.
+- On every deploy, init_db.py safely ensures the tables and starter course
+  data exist before Gunicorn starts. It does not delete existing records.
+
+6) MAKE YOUR ACCOUNT ADMIN (OPTIONAL)
+Run this SQL in your PostgreSQL query tool, replacing the email:
+  UPDATE users SET is_admin=TRUE WHERE email='your@email.com';
+
+TROUBLESHOOTING
+- /api/health says DATABASE_URL is missing: set DATABASE_URL in Render Environment.
+- Connection refused / timeout: check that you used the Internal Database URL
+  and the database is Running; check region/network settings.
+- Password authentication failed: copy the full current connection URL again.
+- First page load can be delayed when a free web service has been idle.
